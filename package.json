@@ -19,6 +19,7 @@
     "jwt-decode": "^2.2.0",
     "mysql": "^2.14.1",
     "mysql2": "^1.6.1",
+    "python-shell": "^1.0.7",
     "react-router-dom": "^4.3.1",
     "sequelize": "^4.43.1"
   },
