@@ -9,13 +9,14 @@ recommendations.use(cors());
 
 recommendations.post('/recommend', (req, res) => {
   // eslint-disable-next-line no-console
-  console.log(req.body.test);
+  console.log(req.body.books);
   const options = {
     mode: 'text',
+    pythonPath: process.env.PYTHON_PATH,
     pythonOptions: ['-u'],
     args: [req.body.books, req.body.crafts, req.body.culture, req.body.food, req.body.outdoor],
   };
-  py.PythonShell.run(process.env.PYTHON_PATH, options, (err, results) => {
+  py.PythonShell.run(process.env.PYTHON_CODE_PATH, options, (err, results) => {
     if (err) throw err;
     // results is an array consisting of messages collected during execution
     // eslint-disable-next-line no-console
