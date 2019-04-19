@@ -13,7 +13,7 @@ recommendations.post('/recommend', (req, res) => {
   const options = {
     mode: 'text',
     pythonOptions: ['-u'],
-    args: [req.body.test],
+    args: [req.body.books, req.body.crafts, req.body.culture, req.body.food, req.body.outdoor],
   };
   py.PythonShell.run(process.env.PYTHON_PATH, options, (err, results) => {
     if (err) throw err;
