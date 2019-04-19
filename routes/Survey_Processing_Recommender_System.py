@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
 #importing the dataset and cleaning it from null value
-df = pd.read_csv("C:/Users/Abdelhameed Emad/Documents/GitHub/Fenak/routes/yelp_business.csv")
+df = pd.read_csv("yelp_business.csv")
 data = df[["business_id", "name", "city", "categories","stars"]]
 data = data.fillna("Giza")
 data = data.sample(frac=0.06, replace=True)
