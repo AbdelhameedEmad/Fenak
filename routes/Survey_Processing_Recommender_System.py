@@ -1,11 +1,12 @@
 #Making recommendations from yelp dataset from ratings
 import pandas as pd
+import sys
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
 #importing the dataset and cleaning it from null value
-df = pd.read_csv("yelp_business.csv")
+df = pd.read_csv("C:/Users/Abdelhameed Emad/Documents/GitHub/Fenak/routes/yelp_business.csv")
 data = df[["business_id", "name", "city", "categories","stars"]]
 data = data.fillna("Giza")
 data = data.sample(frac=0.06, replace=True)
@@ -188,3 +189,13 @@ def recommendations(books, crafts, culture, food, outdoor,data):
     number_of_activities = round((outdoor / total_ratings)*100)
     final_recommendation = final_list(book_stores_list,number_of_book_stores,crafts_stores_list,number_of_crafts,cultural_centers_list,number_of_cultural_center,restaurants_list,number_of_restaurants,travel_list,number_of_activities)
     return final_recommendation
+
+books = sys.argv[1]
+crafts = sys.argv[2]
+culture = sys.argv[3]
+food = sys.argv[4]
+outdoor = sys.argv[5]
+
+recommended = recommendations(books, crafts, culture, food, outdoor,data)
+print(recommended[1])
+sys.stdout.flush()
