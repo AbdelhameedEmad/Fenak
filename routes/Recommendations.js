@@ -31,5 +31,6 @@ recommendations.post('/recommend', (req, res) => {
     res.send(results);
   });
 });
+});
 
 module.exports = recommendations;
