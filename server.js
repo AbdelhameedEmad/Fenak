@@ -14,11 +14,15 @@ const users = require('./routes/Users');
 const businesses = require('./routes/Businesses');
 const products = require('./routes/Product');
 const interests = require('./routes/Interests');
+const recommendations = require('./routes/Recommendations');
+
 
 app.use('/business', businesses);
 app.use('/users', users);
 app.use('/product', products);
 app.use('/interest', interests);
+app.use('/recommendations', recommendations);
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

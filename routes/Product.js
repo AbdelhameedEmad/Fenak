@@ -6,7 +6,6 @@ const Product = require('../models/Product');
 const Business = require('../models/Business');
 
 products.use(cors());
-process.env.SECRET_KEY = 'secret';
 
 products.post('/post_product', (req, res) => {
   const productData = {
