@@ -61,9 +61,11 @@ def recommendations(books, crafts, culture, food, outdoor,data):
         numbers_of_lists = [num1,num2,num3,num4,num5]
         quarter_of_numbers_list = [round(i/4) for i in numbers_of_lists]
 
+        # If the category weight < Minimum_weight which equals 1/No. of categories then will be less frequently recommended
+        Minimum_weight = ((1/(len(numbers_of_lists)))*100)
         j = 0
         for i in quarter_of_numbers_list:
-            if i <= 4:
+            if i <= (Minimum_weight/4):
                 quarter_of_numbers_list[j] = i * 2
             j += 1
 
@@ -166,8 +168,8 @@ def recommendations(books, crafts, culture, food, outdoor,data):
 
     final_recommendation = []
     tag1 = 'Books'
-    tag2 = 'Crafts'
-    tag3 = 'Arts'
+    tag2 = 'Arts & Crafts'
+    tag3 = 'Arts & Entertainment'
     tag4 = 'Restaurant'
     tag5 = 'Active'
     book_store = find_business(tag1, data)
